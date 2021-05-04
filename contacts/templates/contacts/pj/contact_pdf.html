@@ -1,0 +1,32 @@
+{% load static wagtailcore_tags wagtailroutablepage_tags pages_url_extras   wagtailimages_tags wagtailroutablepage_tags cache %}
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>Ambassade de la République de Guinée au Royaume du Maroc</title>
+
+    </head>
+    <body style="background-image: url({% static 'images/pdf_bg/pdf_bg.jpg' %});">
+
+     <div>
+       <div>
+         <h3>Prise de contact</h3>
+
+
+         Un contact vous a été adressé. Voici les détails
+         Nous vous informons que nous avons reçu votre demande de rendez-vous pour la procédure d'obtention de la carte consulaire sous les informations suivantes :
+         <p>Nom : {{ models_instance.nom }}</p>
+         <p>Prénom : {{ models_instance.prenom }}</p>
+         <p>Email : {{ models_instance.email }}</p>
+         <p>Sujet : {{ models_instance.sujet }}</p>
+         <p>Message : {{ models_instance.message }}</p>
+
+         <strong>
+             Vous pouvez toujours aller visualiser dans l'administration du site.
+        </strong>
+
+       </div>
+     </div>
+
+
+    </body>

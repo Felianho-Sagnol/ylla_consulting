@@ -1,0 +1,80 @@
+
+{% extends "base.html" %}
+
+{% load static %}
+
+
+
+
+<title>
+    {% block title %}
+       Connexion
+    {% endblock %}
+    {% block title_suffix %}
+        -Ylla Consulting
+    {% endblock %}
+</title>
+
+
+{% block content %}
+<div class="container">
+
+
+    <div class="row centered-form">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+	          <div class="panel panel-default" style="text-align: center;">
+		            <div class="panel-heading">
+		              <h3 class="panel-title center">Se Connecter</h3>
+		            </div>
+
+		            <div class="panel-body">
+			         	 <form method="POST" role="form" >
+			                {% csrf_token %}
+
+			             	<div class="row">
+			                  	<div class="col-xs-12 col-sm-12 col-md-6">
+			                  	  	<div class="form-group">
+										{{ form.email.label }}
+										{{ form.email }}
+										{% if form.email.errors %}
+											<small style="color: red">{{ form.email.erros }}</small>
+										{% endif %}
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-6">
+		                <div class="form-group">
+  										{{ form.password.label }}
+  										{{ form.password }}
+  										{% if form.password.errors %}
+  											<small style="color: red">{{ form.password.erros }}</small>
+  										{% endif %}
+
+					         </div>
+								</div>
+
+                <div class="col-xs-12 col-sm-12 col-md-6">
+
+
+									<p><a href="{% url 'passwords:password_reset' %}">Mot de passe oublié ?</a></p>
+								</div>
+							</div>
+
+
+
+							<button type="submit" class="btn btn-info btn-block">Connexion</button>
+
+						</form>
+					</div>
+					<div class="col">
+						<h4>Pas encore de compte ?</h4>
+						<p><a href="{% url 'accounts:register' %}" class="btn btn-primary">Créer un compte gratuitement</a></p>
+					</div>
+
+				</div>
+		</div>
+	</div>
+
+
+
+</div>
+{% endblock content %}

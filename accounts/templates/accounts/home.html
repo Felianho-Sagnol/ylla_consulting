@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+
+<title>Yllo Consulting:Utilisateur</title>
+
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+
+
+	<div class="row">
+		<div class="col-12">
+			<h1>Compte</h1>
+		</div>
+
+
+		<div class="col-12 col-md-3 col-lg-3 col-sm-4 my-3">
+			<div class="card">
+			  <div class="card-body">
+			    <h4 class="card-title">Support</h4>
+			    <div class="list-group">
+			    	<a class="list-group-item" href="{% url 'about' %}">A propos de nous </a>
+
+			    	<a class="list-group-item" href="{% url 'contact' %}">Contact </a>
+			    	<a class="list-group-item" href="{% url 'analytics:sales_analytics' %}">Analyse des vente </a>
+
+
+			 	</div>
+			  </div>
+			</div>
+		</div>
+
+
+		<div class="col-12 col-md-3 col-lg-3 col-sm-4 my-3" id="billing">
+			<div class="card">
+			  <div class="card-body">
+			    <h4 class="card-title">Billing</h4>
+
+			    <div class="list-group">
+			    	<a class="list-group-item" href="{% url 'orders:list' %}">Orders </a>
+			    	<a class="list-group-item" href="{% url 'billing:billing_payment_method' %}">Payment method </a>
+			    	<a class="list-group-item" href="{% url 'about' %}">Addresses </a>
+
+
+			 	</div>
+
+
+			  </div>
+			</div>
+		</div>
+
+
+		<div class="col-12 col-md-3 col-lg-3 col-sm-4 my-3">
+			<div class="card">
+			  <div class="card-body">
+			    <h4 class="card-title">Détails du compte</h4>
+
+			    <div class="list-group">
+			    	<a class="list-group-item" href="{% url 'accounts:user_update' %}">Mettre à jour les détails</a>
+
+			    	<a class="list-group-item" href="{% url 'passwords:password_change' %}">Changer de mot de passe</a>
+
+			    	<a class="list-group-item" href="{% url 'library' %}">Votre librairie</a>
+
+
+			 	</div>
+
+
+			  </div>
+			</div>
+		</div>
+
+
+
+		<div class="col-12 col-md-3 col-lg-3 col-sm-4 my-3">
+			<div class="card">
+			  <div class="card-body">
+			    <h4 class="card-title">Preference</h4>
+
+			    <div class="list-group">
+			    	<a class="list-group-item" href="{% url 'marketing:marketing_pref' %}">Email marketing preference</a>
+
+			 	</div>
+
+
+			  </div>
+			</div>
+		</div>
+
+
+
+
+		<div class="col-12 col-md-3 col-lg-3 col-sm-4 my-3">
+			<div class="card">
+			  <div class="card-body">
+			    <h4 class="card-title">Historiques</h4>
+
+			    <div class="list-group">
+			    	<a class="list-group-item" href="{% url 'products:user_history' %}">Les produits</a>
+			 	</div>
+
+
+			  </div>
+			</div>
+		</div>
+
+
+
+
+
+	</div>
+
+
+</div>
+{% endblock content %}

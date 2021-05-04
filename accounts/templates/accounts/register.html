@@ -1,0 +1,225 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+Enregistrement
+{% endblock %}
+
+
+
+
+{% block extra_static %}
+
+{% endblock extra_static %}
+
+{% block content %}
+
+
+<div class="container">
+
+      <div class="row centered-form">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+          <div class="panel panel-default" style="text-align: center;">
+            <div class="panel-heading">
+              <h3 class="panel-title">Créer un pour avoir une meilleure expérience de nos services</h3>
+            </div>
+
+            <div class="panel-body">
+
+                <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                 {% if messages %}
+                                        {% for message in messages %}
+                                            {% if message.tags == 'success' %}
+                                                <div class="alert alert-success">{{ message }}</div>
+                                            {% elif message.tags == 'error' %}
+                                                <div class="alert alert-danger">{{ message }}</div>
+                                            {% endif %}
+                                        {% endfor %}
+                                 {% endif %}
+                            </div>
+                        </div>
+                </div>
+                 	 <form method="post" role="form" class="register-form-ajax" action="{% url 'accounts:register' %}" data-endpoint="{% url 'accounts:register' %}">
+	                    {% csrf_token %}
+
+
+	                 	 <div class="row">
+	                      	<div class="col-xs-12 col-sm-12 col-md-6">
+	                      	  <div class="form-group">
+
+									{{ form.email.label }}
+									{{ form.email }}
+									{% if form.email.errors %}
+										<small style="color: red">{{ form.email.errors }}</small>
+									{% endif %}
+
+								</div>
+							</div>
+
+							<div class="col-xs-12 col-sm-12 col-md-6">
+
+	                      	  	<div class="form-group">
+	                      	  		<label style="display: block;
+    												font-weight: initial;
+    												width: -webkit-fill-available; ">Téléphone</label>
+									<input id="phone" type="tel" class="form-control input-xs" name="phone" required>
+									<span id="valid-msg" class="hide">✓ Valid</span>
+									<span id="error-msg" class="hide"></span>
+									<input  name="phone_number[phone_input]" type="hidden">
+
+
+
+								</div>
+
+
+
+							</div>
+
+
+						</div>
+
+
+						 <div class="row">
+	                      	<div class="col-xs-12 col-sm-12 col-md-6">
+		                      	  <div class="form-group">
+
+									{{ form.password1.label }}
+									{{ form.password1 }}
+									{% if form.password1.errors %}
+										<small style="color: red">{{ form.password1.errors }}</small>
+									{% endif %}
+						    		<span id="aideMdp"></span>
+						    	</div>
+					    	</div>
+
+					    	<div class="col-xs-12 col-sm-12 col-md-6">
+	                      	  	<div class="form-group">
+									{{ form.password2.label }}
+									{{ form.password2 }}
+									{% if form.password2.errors %}
+										<small style="color: red">{{ form.password2.errors }}</small>
+									{% endif %}
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group">
+								<p>Vous avez déjà un compte ? <a href="{% url 'accounts:login' %}">Connectez-vous</a></p>
+							    <div class="form-check">
+							      <input class="form-check-input" type="checkbox"  name="terms_check" value="" id="invalidCheck2" required>
+							      <label class="form-check-label" for="invalidCheck2">
+							        En envoyant vous acceptez <a href="#" style="color: darkblue; ">les conditions d'utilisation</a>
+							      </label>
+							    </div>
+							 </div>
+						</div>
+
+						<button type="submit" class="btn btn-info btn-block">Envoyer</button>
+					 </form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+</div>
+
+
+
+
+{% endblock content %}
+
+
+
+{% block extrat_js %}
+
+<link rel="stylesheet" href="{% static 'css/intlTelInput.css' %}">
+
+
+<script type="text/javascript" src="{% static 'js/intlTelInput.js' %}"></script>
+
+
+<script type="text/javascript">
+
+	//Vérification de la longueur du mot de passe saisi
+	document.getElementById("controleMdpSaisi").addEventListener("input", function(e){
+		var mdp = e.target.value;//Valeur saisie dans le champ mdp
+		var longueurMdp = "faible";
+		var couleurmsg = "red";//Longueur faible=>couleur rouge
+		if(mdp.length>=8){
+			longueurMdp = "Suffisante";
+			couleurmsg="green";//Longueur suffisante=>couleurmsg verte
+		}
+		else if(mdp.length>=4){
+			longueurMdp = "moyenne";
+			couleurmsg = "orange";//Longueur moyenne=>couleurmsg orange
+		}
+
+		var aideMdpElt = document.getElementById("aideMdp");
+		aideMdp.textContent="Longueur : " + longueurMdp; //Texte de l'aide
+		aideMdp.style.color = couleurmsg;//Couleur du texte de l'aide
+	});
+
+
+
+			$(document).ready(function(){
+
+								var input = document.querySelector("#phone"),
+									errorMsg = document.querySelector("#error-msg"),
+							validMsg = document.querySelector("#valid-msg");
+
+							// here, the index maps to the error code returned from getValidationError - see readme
+					var errorMap = ["Nombre invalide", "Code de pays invalide", "Trop court", "Trop long", "Nombre invalide"];
+
+					// initialise plugin
+					var iti = window.intlTelInput(input, {
+						initialCountry: "MA",
+									separateDialCode: true,
+									hiddenInput: "phone_input",
+									geoIpLookup: function(callback) {
+										$.get('https://ipinfo.io', function() {}, "jsonp").always(function(resp) {
+											var countryCode = (resp && resp.country) ? resp.country : "";
+											callback(countryCode);
+										});
+									},
+									utilsScript: "{% static 'js/tel-input-utils.js' %}"
+					});
+
+					var reset = function(){
+						input.classList.remove("error");
+						errorMsg.innerHTML = "";
+						errorMsg.classList.add("hide");
+						validMsg.classList.add("hide")
+					};
+
+					//on blur: validate
+					input.addEventListener('blur', function() {
+						reset();
+						if(input.value.trim()){
+							if(iti.isValidNumber()){
+								validMsg.classList.remove("hide")
+							}else{
+								input.classList.add("error");
+								var errorCode = iti.getValidationError();
+								errorMsg.innerHTML = errorMap[errorCode];
+								errorMsg.classList.remove("hide")
+							}
+						}
+					});
+					//on keyup /change flag: reset
+					input.addEventListener("change", reset);
+					input.addEventListener("keyup", reset);
+
+
+
+
+			});
+
+
+			</script>
+
+{% endblock extrat_js %}

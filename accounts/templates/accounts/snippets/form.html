@@ -1,0 +1,69 @@
+{% load static  %}
+
+
+
+<style type="text/css">
+
+	.iti__flag {background-image: url("{% static 'flags/flags.png' %}");}
+
+	@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+	  .iti__flag {background-image: url("{% static 'flags/flags@2x.png' %}");}
+	}
+</style>
+
+
+
+	<h3>{% if head_form %} {{ head_form }} {% else %} Login {% endif %}</h3>
+
+	<form method="POST" action="{% if action_url %}{{ action_url }} {% else %}{% url 'accounts:login' %} {% endif %}">
+		{% csrf_token %}
+
+		
+		{% if next_url %}
+		<input type="hidden" name="next" value="{{ next_url }}">
+		{% endif %}
+
+
+		{{ form }}
+
+		{% if mobile %}
+	  	  	<div class="form-group">
+	  	  		<label style="display: block;
+								font-weight: initial;
+								width: -webkit-fill-available; ">Tel:</label>
+				<input id="phone" type="tel" class="form-control input-xs" name="phone" required><br>
+				<small>Le numero sans le code du pays et de préférence le numéro vous utilisez sur WhatsApp pour qu'on puisse vous contacter dessus </small>
+				<span id="valid-msg" class="hide">✓ Valid</span>
+				<span id="error-msg" class="hide"></span>
+				<input  name="phone_number[phone_input]" type="hidden">
+
+
+
+			</div>
+		{% endif %}
+
+		<button type="submit" class="btn btn-default">{% if login_label %} {{ login_label }} {% else %} Login {% endif %}</button>
+	</form>
+
+
+
+
+
+<script type="text/javascript">
+	
+	$(document).ready(function(){
+
+            var input = document.querySelector("#phone");
+
+			// initialise plugin
+			var iti = window.intlTelInput(input, {
+			  initialCountry: "ma",
+              separateDialCode: true,
+              hiddenInput: "phone_input",
+              utilsScript: "{% static 'js/tel-input-utils.js' %}"
+			});
+
+
+        })
+
+</script>

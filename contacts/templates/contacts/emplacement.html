@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% load static wagtailcore_tags wagtailroutablepage_tags pages_url_extras   wagtailimages_tags wagtailroutablepage_tags cache %}
+
+
+
+
+{% block content %}
+
+    <div class="page-wrapper">
+
+        <section class="page-header" style="background-image: url({% static 'images/gn/flag.jpg' %}); background-repeat: repeat;">
+            <div class="container">
+                <h2>Emplacement de l'ambassade de la République de Guinée au Royaume du Maroc </h2>
+            </div><!-- /.container -->
+        </section><!-- /.page-header -->
+
+        {% include "rdv/snippets/g_maps.html" %}
+
+    </div><!-- /.page-wrapper -->
+
+
+    {% endblock content %}

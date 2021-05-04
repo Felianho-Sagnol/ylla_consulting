@@ -1,0 +1,436 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+ <html>
+     <head>
+         <title>Ambassade de Guinée</title>
+         <style type="text/css">
+           /* *{
+                margin: 0; padding: 0;
+            }*/
+             body {
+                 font-weight: 200;
+                 font-size: 14px;
+             }
+             .header {
+                 font-size: 20px;
+                 font-weight: 100;
+                 text-align: center;
+                 color: #007cae;
+             }
+             .title {
+                 font-size: 22px;
+                 font-weight: 100;
+                /* text-align: right;*/
+                padding: 10px 20px 0px 20px;
+             }
+             .title span {
+                 color: #007cae;
+             }
+             .details {
+                 padding: 10px 20px 0px 20px;
+                 text-align: left !important;
+                 /*margin-left: 40%;*/
+             }
+             .hrItem {
+                 border: none;
+                 height: 1px;
+                 /* Set the hr color */
+                 color: #333; /* old IE */
+                 background-color: #fff; /* Modern Browsers */
+             }
+
+             /* #########################*/
+
+
+              * {
+             box-sizing: border-box;
+            }
+
+/* line 6, grille.scss */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* line 36, _grid.scss */
+.col-1, .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-2, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-3, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-4, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-5, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-6, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-7, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-8, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-9, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-10, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-11, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-12, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding: 0 10px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+/* line 73, _grid.scss */
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+}
+
+/* line 81, _grid.scss */
+.row {
+  margin: 0 -10px;
+  overflow: hidden;
+  zoom: 1;
+}
+
+/* line 100, _grid.scss */
+.sm-show {
+  display: none;
+}
+
+/* line 101, _grid.scss */
+.md-show {
+  display: none;
+}
+
+/* line 102, _grid.scss */
+.lg-show {
+  display: none;
+}
+
+/* line 25, _grid.scss */
+.col-center {
+  margin: auto;
+  float: none;
+}
+
+/* line 26, _grid.scss */
+.col-push-0 {
+  left: 0%;
+}
+
+/* line 27, _grid.scss */
+.col-offset-0 {
+  margin-left: 0%;
+}
+
+/* line 28, _grid.scss */
+.col-pull-0 {
+  left: 0%;
+}
+
+/* line 21, _grid.scss */
+.col-1 {
+  width: 8.33333%;
+}
+
+/* line 25, _grid.scss */
+.col-center {
+  margin: auto;
+  float: none;
+}
+
+/* line 26, _grid.scss */
+.col-push-1 {
+  left: 8.33333%;
+}
+
+/* line 27, _grid.scss */
+.col-offset-1 {
+  margin-left: 8.33333%;
+}
+
+/* line 28, _grid.scss */
+.col-pull-1 {
+  left: 8.33333%;
+}
+
+/* line 21, _grid.scss */
+.col-2 {
+  width: 16.66667%;
+}
+
+/* line 25, _grid.scss */
+.col-center {
+  margin: auto;
+  float: none;
+}
+
+/* line 26, _grid.scss */
+.col-push-2 {
+  left: 16.66667%;
+}
+
+/* line 27, _grid.scss */
+.col-offset-2 {
+  margin-left: 16.66667%;
+}
+
+/* line 28, _grid.scss */
+.col-pull-2 {
+  left: 16.66667%;
+}
+
+/* line 21, _grid.scss */
+.col-3 {
+  width: 25%;
+}
+
+/* line 25, _grid.scss */
+.col-center {
+  margin: auto;
+  float: none;
+}
+
+/* line 26, _grid.scss */
+.col-push-3 {
+  left: 25%;
+}
+
+/* line 27, _grid.scss */
+.col-offset-3 {
+  margin-left: 25%;
+}
+
+/* line 28, _grid.scss */
+.col-pull-3 {
+  left: 25%;
+}
+
+/* line 21, _grid.scss */
+.col-4 {
+  width: 33.33333%;
+}
+
+/* line 25, _grid.scss */
+.col-center {
+  margin: auto;
+  float: none;
+}
+
+/* line 26, _grid.scss */
+.col-push-4 {
+  left: 33.33333%;
+}
+
+/* line 27, _grid.scss */
+.col-offset-4 {
+  margin-left: 33.33333%;
+}
+
+/* line 28, _grid.scss */
+.col-pull-4 {
+  left: 33.33333%;
+}
+
+/* line 21, _grid.scss */
+.col-5 {
+  width: 41.66667%;
+}
+
+/* line 25, _grid.scss */
+.col-center {
+  margin: auto;
+  float: none;
+}
+
+/* line 26, _grid.scss */
+.col-push-5 {
+  left: 41.66667%;
+}
+
+/* line 27, _grid.scss */
+.col-offset-5 {
+  margin-left: 41.66667%;
+}
+
+/* line 28, _grid.scss */
+.col-pull-5 {
+  left: 41.66667%;
+}
+
+/* line 21, _grid.scss */
+.col-6 {
+  width: 50%;
+}
+
+/* line 25, _grid.scss */
+.col-center {
+  margin: auto;
+  float: none;
+}
+
+/* line 26, _grid.scss */
+.col-push-6 {
+  left: 50%;
+}
+
+/* line 27, _grid.scss */
+.col-offset-6 {
+  margin-left: 50%;
+}
+
+/* line 28, _grid.scss */
+.col-pull-6 {
+  left: 50%;
+}
+
+/* line 21, _grid.scss */
+.col-7 {
+  width: 58.33333%;
+}
+
+/* line 25, _grid.scss */
+.col-center {
+  margin: auto;
+  float: none;
+}
+
+/* line 26, _grid.scss */
+.col-push-7 {
+  left: 58.33333%;
+}
+
+/* line 27, _grid.scss */
+.col-offset-7 {
+  margin-left: 58.33333%;
+}
+
+/* line 28, _grid.scss */
+.col-pull-7 {
+  left: 58.33333%;
+}
+
+/* line 21, _grid.scss */
+.col-8 {
+  width: 66.66667%;
+}
+
+/* line 25, _grid.scss */
+.col-center {
+  margin: auto;
+  float: none;
+}
+
+/* line 26, _grid.scss */
+.col-push-8 {
+  left: 66.66667%;
+}
+
+/* line 27, _grid.scss */
+.col-offset-8 {
+  margin-left: 66.66667%;
+}
+
+/* line 28, _grid.scss */
+.col-pull-8 {
+  left: 66.66667%;
+}
+
+/* line 21, _grid.scss */
+.col-9 {
+  width: 75%;
+}
+
+/* line 25, _grid.scss */
+.col-center {
+  margin: auto;
+  float: none;
+}
+
+/* line 26, _grid.scss */
+.col-push-9 {
+  left: 75%;
+}
+
+/* line 27, _grid.scss */
+.col-offset-9 {
+  margin-left: 75%;
+}
+
+/* line 28, _grid.scss */
+.col-pull-9 {
+  left: 75%;
+}
+
+/* line 21, _grid.scss */
+.col-10 {
+  width: 83.33333%;
+}
+
+/* line 25, _grid.scss */
+.col-center {
+  margin: auto;
+  float: none;
+}
+
+/* line 26, _grid.scss */
+.col-push-10 {
+  left: 83.33333%;
+}
+
+/* line 27, _grid.scss */
+.col-offset-10 {
+  margin-left: 83.33333%;
+}
+
+/* line 28, _grid.scss */
+.col-pull-10 {
+  left: 83.33333%;
+}
+
+/* line 21, _grid.scss */
+.col-11 {
+  width: 91.66667%;
+}
+
+/* line 25, _grid.scss */
+.col-center {
+  margin: auto;
+  float: none;
+}
+
+/* line 26, _grid.scss */
+.col-push-11 {
+  left: 91.66667%;
+}
+
+/* line 27, _grid.scss */
+.col-offset-11 {
+  margin-left: 91.66667%;
+}
+
+/* line 28, _grid.scss */
+.col-pull-11 {
+  left: 91.66667%;
+}
+
+/* line 21, _grid.scss */
+.col-12 {
+  width: 100%;
+}
+
+/* line 25, _grid.scss */
+.col-center {
+  margin: auto;
+  float: none;
+}
+
+/* line 26, _grid.scss */
+.col-push-12 {
+  left: 100%;
+}
+
+/* line 27, _grid.scss */
+.col-offset-12 {
+  margin-left: 100%;
+}
+
+/* line 28, _grid.scss */
+.col-pull-12 {
+  left: 100%;
+}
+
+/* #################### */
+         </style>
+     </head>
+     <body>
+        <div class='header'>
+                 <p class='title'> Les codes</p>
+        </div>
+     </body>
+ </html>

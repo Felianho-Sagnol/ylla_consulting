@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% load static wagtailcore_tags wagtailroutablepage_tags pages_url_extras   wagtailimages_tags wagtailroutablepage_tags cache %}
+
+
+
+{% block content %}
+
+
+{% image self.image_gauche original  as img_gauch %}
+{% image self.banner_image original  as banner_img %}
+
+          <section class="page-header" style="background-image: url({{ banner_img.url }});">
+        <!-- <section class="page-header" style="background-image: url({% static 'assets/images/backgrounds/page-header-bg-1-1.jpg' %});"> -->
+            <div class="container">
+                <h2>{{ self.title_text }}</h2>
+            </div><!-- /.container -->
+        </section><!-- /.page-header -->
+
+        <section class="about-four">
+            <div class="container">
+                <div class="about-four__image wow fadeInRight" data-wow-duration="1500ms">
+                    <img src="{{ img_gauch.url }}" alt="">
+                </div><!-- /.about-four__image -->
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="about-four__content">
+                            <div class="block-title">
+                                <p>{{ self.title }}</p>
+                                <h3>{{ self.sub_title }}</h3>
+                            </div><!-- /.block-title -->
+                            {% for block in self.contenu %}
+
+                              {% include_block block %}
+
+                            {% endfor %}
+                        </div><!-- /.about-four__content -->
+                    </div><!-- /.col-lg-6 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </section><!-- /.about-four -->
+
+        {% endblock content %}

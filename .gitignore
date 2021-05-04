@@ -127,3 +127,28 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+# Mes propres ignoration
+fixtures/
+
+ylla_consulting.sublime-workspace
+staticfiles
+
+__pycache__
+
+
+ylla_consulting/production.py
+production.py
+logs
+logs/
+
+static_cdn
+static_cdn/
+media
+media/
+staticfiles
+staticfiles/
+
+
+*.sqlite3
